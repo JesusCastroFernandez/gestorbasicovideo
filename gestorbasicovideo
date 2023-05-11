@@ -1,0 +1,76 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class VideoManager {
+
+    private List<Video> videoList;
+
+    public VideoManager() {
+        videoList = new ArrayList<>();
+    }
+
+    public void addVideo(Video video) {
+        videoList.add(video);
+    }
+
+    public void removeVideo(Video video) {
+        videoList.remove(video);
+    }
+
+    public void displayAllVideos() {
+        for (Video video : videoList) {
+            System.out.println(video);
+        }
+    }
+
+    public static void main(String[] args) {
+        VideoManager manager = new VideoManager();
+
+        Video v1 = new Video("Title 1", "Director 1", 2022, 120);
+        Video v2 = new Video("Title 2", "Director 2", 2019, 90);
+
+        manager.addVideo(v1);
+        manager.addVideo(v2);
+
+        manager.displayAllVideos();
+
+        manager.removeVideo(v2);
+
+        manager.displayAllVideos();
+    }
+}
+
+class Video {
+
+    private String title;
+    private String director;
+    private int year;
+    private int duration;
+
+    public Video(String title, String director, int year, int duration) {
+        this.title = title;
+        this.director = director;
+        this.year = year;
+        this.duration = duration;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getDirector() {
+        return director;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public String toString() {
+        return "Title: " + title + ", Director: " + director + ", Year: " + year + ", Duration: " + duration;
+    }
+}
